@@ -1,0 +1,7 @@
+/.idea/
+/.venv/
+*.pyc
+__pycache__
+/books_readers\__pycache__/
+/library\__pycache__/
+/migrations\__pycache__/
