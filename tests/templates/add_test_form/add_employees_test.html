@@ -1,9 +1,0 @@
-{% block content %}
-<form method = "post">
-    {% csrf_token %}
-    {{ form.as_p }}
-<button type="submit" id="addDB" title="Добавить введенные значения в базу данных">Добавить
-</button>&emsp;
-<button type="button" id="btn-clear" title="Очистить поля ввода">Очистить</button>
-</form>
-{% endblock content %}

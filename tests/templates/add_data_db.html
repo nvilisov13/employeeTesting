@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ header_template.title }}{% endblock title %}
+{% block header %}<h3>{{ header_template.head }}</h3>{% endblock header %}
+{% block content %}
+<form method = "post">
+    {% csrf_token %}
+    {{ form.as_p }}
+<button type="submit" class="btn btn-primary" title="Добавить введенные значения в базу данных">Добавить
+</button>&emsp;
+<button type="button" class="btn btn-danger" id="btn-clear" title="Очистить поля ввода">Очистить</button>
+</form>
+{% load static %}
+<script src="{% static 'js/scripts.js' %}"></script>
+{#<script src="{% static 'node_modules/react/umd/react.development.js' %}"></script>#}
+{#<script src="{% static 'node_modules/react-dom/umd/react-dom.development.js' %}"></script>#}
+{% endblock content %}
