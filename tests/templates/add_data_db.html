@@ -5,8 +5,9 @@
 <form method = "post">
     {% csrf_token %}
     {{ form.as_p }}
-<button type="submit" class="btn btn-primary" title="Добавить введенные значения в базу данных">Добавить
-</button>&emsp;
+<button type="submit" class="btn btn-primary" title="Добавить введенные значения в базу данных">Добавить</button>&emsp;
+<button type="button" class="btn btn-success" id="btn-next"
+        title="Перейти далее к заполнению: {{ header_template.next_form }}">Далее</button>&emsp;
 <button type="button" class="btn btn-danger" id="btn-clear" title="Очистить поля ввода">Очистить</button>
 </form>
 {% load static %}
