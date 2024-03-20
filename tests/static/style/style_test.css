@@ -1,0 +1,35 @@
+h2 {
+    color: red;
+    margin-top: 17px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: #ff0088;
+    font-style: italic;
+}
+
+h4 {
+    color: orange;
+    font-weight: bolder;
+    font-style: italic;
+    margin-top: 26px;
+    margin-bottom: 11px;
+}
+
+.btn {
+    margin-top: 21px;
+    margin-bottom: 23px;
+}
+
+blockquote {
+    font-style: italic;
+    font-weight: bolder;
+    margin-top: 19px;
+}
+
+#questions-test {
+    margin-bottom: 25px;
+    font-style: italic;
+    text-decoration: underline;
+}

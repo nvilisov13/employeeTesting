@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import EmployeesTestForm, QuestionsForm, AnswerQuestionsForm, EmployeesForm, NominatedTestsForm
+from .models import EmployeesTest
 
 
 def login(request):
@@ -74,3 +75,12 @@ def add_nominated_test(request):
     header_template = {'title': 'Назначение теста', 'head': 'Назначение тестов для сотрудников',
                        'next_form': 'Добавление новых сотрудников для прохождения тестов'}
     return render(request, 'add_data_db.html', {'form': form, 'header_template': header_template})
+
+
+def take_test(request):
+    tests_employees = EmployeesTest.objects.all()
+    return render(request, 'show_tests.html', {'tests_employees': tests_employees})
+
+
+def test(request, id_test):
+    return render(request, 'test.html', {'test': id_test})

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Тесты{% endblock title %}
+{% block header %}<h3>Выберите тест</h3>{% endblock header %}
+{% block content %}
+<table class="table table-bordered">
+    <thead><th>ID</th><th>Название теста</th><th>Описание теста</th></thead>
+    {% for tests_employees in tests_employees %}
+        <tr>
+            <td class='al_cnt'>{{ tests_employees.id }}</td>
+            <td><a href='test/{{ tests_employees.id }}'>{{ tests_employees.NameTest }}</a></td>
+            <td>{{ tests_employees.DescriptionTest }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

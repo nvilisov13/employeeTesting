@@ -50,9 +50,9 @@ class Employees(models.Model):
 
 
 class NominatedTests(models.Model):
-    MarksTest = models.SmallIntegerField(verbose_name='Оценка за тест')
-    DateTimePassing = models.DateTimeField(verbose_name='Дата/время прохождения теста')
-    TravelTime = models.DateTimeField(verbose_name='Время прохождения теста')
+    MarksTest = models.SmallIntegerField(blank=True, null=True, verbose_name='Оценка за тест')
+    DateTimePassing = models.DateTimeField(blank=True, null=True, verbose_name='Дата/время прохождения теста')
+    TravelTime = models.DateTimeField(blank=True, null=True, verbose_name='Время прохождения теста')
     Employee = models.ForeignKey(Employees, on_delete=models.CASCADE, verbose_name='Сотрудник')
     Test = models.ForeignKey(EmployeesTest, null=True, on_delete=models.SET_NULL, verbose_name='Тест')
 
