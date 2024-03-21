@@ -12,9 +12,6 @@
     <div id="test-employees-description"></div>
     <div id="questions-test"></div>
 <script type="application/javascript">
-    JSONParsing('/drf_employees_test/1/', ShowTestEmployees);
-    JSONParsing('/drf_questions/1/questions_test/', ShowQuestions);
-    JSONParsing('/drf_questions/5/question_answers/', ShowAnswers);
-    JSONParsing('/drf_questions/1/question_count/', ShowQuestionsCount);
+    load_test({{ test }});
 </script>
 {% endblock content %}

@@ -1,2 +1,2 @@
 loginsuperuser: root
-password: 123456
+password: 123
