@@ -3,3 +3,4 @@
 *.pyc
 __pycache__
 /empl-testing-front/
+/tests/static/bootstrap_3/

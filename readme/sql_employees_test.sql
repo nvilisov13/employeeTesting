@@ -5,15 +5,15 @@ INSERT INTO "tests_employeestest" ("NameTest", "DescriptionTest") VALUES
 -- insert questions tests
 INSERT INTO "tests_questions" ("TextQuestion", "ImageQuestion", "TestNum_id") VALUES
 	('Вопрос №1 Математика
-	Чему равно значение выражения 2 x (3+5)−4 ?', '', 1),
+	Чему равно значение выражения 2 x (3+5)−4 ?', 'images_questions/1_math.jpg', 1),
 	('Вопрос №2 Грамматика и пунктуация
 	Выберите правильное написание слова:', '', 1),
 	('Вопрос №3 Литература
-	Кто написал произведение "Преступление и наказание"?', '', 1),
+	Кто написал произведение "Преступление и наказание"?', 'images_questions/3_criminal_punishment_and_punishment.jpg', 1),
 	('Вопрос №4 История
 	Когда произошла Великая Французская революция?', '', 1),
 	('Вопрос №5: Биология
-	Что является основной функцией сердца?', '', 1);
+	Что является основной функцией сердца?', 'images_questions/5_heart.jpg', 1);
 
 -- insert answers questions
 INSERT INTO "tests_answerquestions" ("TextAnswer", "MarkAnswer", "Question_id") VALUES
@@ -39,10 +39,9 @@ INSERT INTO "tests_answerquestions" ("TextAnswer", "MarkAnswer", "Question_id") 
 ('Основной функцией сердца является перекачивание крови по венам и артериям организма.', '0', 5);
 
 -- insert employees
-INSERT INTO "tests_employees" ("FirstName", "LastName", "Phone") VALUES
-	('Георгий', 'Арцишевский', '980650980'),
-	('Марина', 'Верясова', '946540877'),
+INSERT INTO "tests_employees" ("FirstName", "LastName", "Phone", "TelegramID") VALUES
+	('Николай', 'Вилисов', '+375447013619', NULL);
 
 -- insert nominated tests
-INSERT INTO "tests_nominatedtests" ("MarksTest", "DateTimePassing", "TravelTime", "Employee_id", "Test_id") VALUES
+INSERT INTO "tests_nominatedtests" ("MarksTest", "SinceDateTime", "DuringDateTime", "Employee_id", "Test_id") VALUES
 (NULL, NULL, NULL, 1, 1);

@@ -14,8 +14,8 @@ class EmployeesTest(models.Model):
 
 class Questions(models.Model):
     TextQuestion = models.TextField(verbose_name='Текст вопроса')
-    ImageQuestion = models.ImageField(upload_to="_/%Y/%m/%d/", default=None,
-                                      blank=True, null=True, verbose_name='Картинка вопроса')
+    ImageQuestion = models.ImageField(upload_to="images_questions", default=None,
+                                      blank=True, null=True, verbose_name='Изображение вопроса')
     TestNum = models.ForeignKey(EmployeesTest, on_delete=models.CASCADE, verbose_name='Номер теста')
 
     class Meta:
@@ -25,8 +25,8 @@ class Questions(models.Model):
 
 @receiver(pre_save, sender=Questions)
 def set_image_filename(sender, instance, **kwargs):
-    if instance.pk is None and instance.ImageQuestion:
-        instance.ImageQuestion.name = f"{instance.pk}/{instance.ImageQuestion.name}"
+    if instance.pk and instance.ImageQuestion:
+        instance.ImageQuestion.name = f"{instance.pk}_{instance.ImageQuestion.name}"
 
 
 class AnswerQuestions(models.Model):
@@ -43,6 +43,7 @@ class Employees(models.Model):
     FirstName = models.CharField(max_length=30, verbose_name='Имя')
     LastName = models.CharField(max_length=30, verbose_name='Фамилия')
     Phone = models.CharField(max_length=12, null=True, verbose_name='Телефон')
+    TelegramID = models.CharField(max_length=12, null=True, verbose_name='ID пол-я телеграмма')
 
     class Meta:
         verbose_name = 'сотрудника'
@@ -51,8 +52,8 @@ class Employees(models.Model):
 
 class NominatedTests(models.Model):
     MarksTest = models.SmallIntegerField(blank=True, null=True, verbose_name='Оценка за тест')
-    DateTimePassing = models.DateTimeField(blank=True, null=True, verbose_name='Дата/время прохождения теста')
-    TravelTime = models.DateTimeField(blank=True, null=True, verbose_name='Время прохождения теста')
+    SinceDateTime = models.DateTimeField(blank=True, null=True, verbose_name='Дата/время начало прохождения теста')
+    DuringDateTime = models.DateTimeField(blank=True, null=True, verbose_name='Дата/время завершения прохождения теста')
     Employee = models.ForeignKey(Employees, on_delete=models.CASCADE, verbose_name='Сотрудник')
     Test = models.ForeignKey(EmployeesTest, null=True, on_delete=models.SET_NULL, verbose_name='Тест')
 

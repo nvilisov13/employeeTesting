@@ -33,3 +33,13 @@ blockquote {
     font-style: italic;
     text-decoration: underline;
 }
+
+#question_img {
+    display: block;
+    margin-left: 5%;
+    padding: 15px;
+}
+
+#question_img > img {
+    height: 300px;
+}

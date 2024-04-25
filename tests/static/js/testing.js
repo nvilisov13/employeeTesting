@@ -21,6 +21,12 @@ const ShowTestEmployees = (data) => {
 let id_test = 0, current_question = 1, count_mark = 0, max_mark = 0;
 const ShowQuestions = (data) => {
     document.getElementById('question').innerHTML = '<h4>' + data[current_question][0] + '</h4>';
+    if (data[current_question][1] !== null) {
+        document.getElementById('question_img').innerHTML = '<img src="' + data[current_question][1] + '" alt="">';
+    }
+    else {
+        document.getElementById('question_img').innerHTML = '';
+    }
 }
 
 function getSelectedValue() {
@@ -71,13 +77,13 @@ const ShowQuestionsCount = (data) => {
 
 function ShowAnswers(data) {
     const answer_question = document.getElementById("answer-question");
-    let scores = {};
     answer_question.innerHTML = '';
+    let scores = {};
 
     for (let key in data) {
         if (data.hasOwnProperty(key)) {
             let score = data[key][1];
-            if (score !== 0) {
+            if (score > 0) {
                 scores[score] = (scores[score] || 0) + 1;
                 max_mark += score;
             }

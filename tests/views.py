@@ -1,3 +1,4 @@
+from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect
 from .forms import EmployeesTestForm, QuestionsForm, AnswerQuestionsForm, EmployeesForm, NominatedTestsForm
 from .models import EmployeesTest
@@ -84,3 +85,7 @@ def take_test(request):
 
 def test(request, id_test):
     return render(request, 'test.html', {'test': id_test})
+
+
+def page_not_found(request, exception):
+    return HttpResponseNotFound("<h1>Страница не найдена</h1>")

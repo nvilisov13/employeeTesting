@@ -8,6 +8,8 @@ router = routers.SimpleRouter()
 router.register(r'drf_employees_test', drfviews.EmployeesTestViewSet)
 router.register(r'drf_questions', drfviews.QuestionViewSet)
 router.register(r'drf_answers_question', drfviews.AnswersQuestionViewSet)
+router.register(r'drf_employees', drfviews.EmployeesViewSet)
+router.register(r'drf_nominated_tests', drfviews.NominatedTestsViewSet)
 
 urlpatterns = [
     path('', views.home, name='home'),

@@ -24,10 +24,18 @@ SECRET_KEY = 'django-insecure-0)x66nw$=stj5byv(5&q+#nrv_51hn#xu-r7^buxzpiwgrdp_w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-INTERNAL_IPS = [
+ALLOWED_HOSTS = [
+    'localhost',
     '127.0.0.1',
+    'GIGABYTE-DESKTOP',
 ]
+INTERNAL_IPS = [
+    'localhost',
+    '127.0.0.1',
+    'GIGABYTE-DESKTOP',
+]
+CORS_ORIGIN_ALLOW_ALL = DEBUG
+# CORS_ALLOWED_ORIGINS = []
 
 # Application definition
 
@@ -41,6 +49,7 @@ INSTALLED_APPS = [
     'tests',
     'debug_toolbar',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'employeeTesting.urls'
@@ -118,6 +128,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = 'media/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -127,6 +140,10 @@ LOGIN_REDIRECT_URL = '/'
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
-        # 'rest_framework.renderers.BrowsableAPIRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
     ]
 }
